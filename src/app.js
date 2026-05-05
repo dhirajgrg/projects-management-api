@@ -5,9 +5,9 @@ import cookieParser from "cookie-parser";
 import AppError from "./utils/appError.util.js";
 import globalErrorHandler from "./controllers/error.controller.js";
 import projectRoutes from './routes/project.route.js'
-
 import authRoutes from "./routes/auth.route.js";
 import taskRoutes from './routes/task.route.js'
+import commentRoutes from "./routes/comment.route.js";
 
 const app = express();
 app.use(morgan("dev"));
@@ -24,6 +24,7 @@ app.get("/health", (req, res) => {
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/projects", projectRoutes);
 app.use("/api/v1/tasks", taskRoutes);
+app.use("/api/v1/comments", commentRoutes);
 
 app.use(/.*/, (req, res, next) => {
   return next(

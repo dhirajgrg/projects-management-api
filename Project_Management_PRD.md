@@ -241,11 +241,17 @@ Client → API → Auth Middleware → Route Handler → Service Layer → Model
 project-management-api/
 ├── config/
 │   └── db.js                  # Database connection
-├── models/
-│   ├── User.js
-│   ├── Project.js
-│   ├── Task.js
-│   ├── Comment.js
+|──controllers/
+|   ├── auth.controller.js
+│   ├── comment.controller.js
+│   ├── error.controller.js
+│   ├── project.controller.js
+│   └── task.controller.js 
+|── models/
+│   ├── comment.model.js
+│   ├── project.model.js
+│   ├── task.model.js
+│   ├── user.model.js
 │   └── Activity.js
 ├── routes/
 │   ├── auth.routes.js
@@ -255,9 +261,15 @@ project-management-api/
 │   └── comment.routes.js
 ├── middleware/
 │   ├── auth.middleware.js     # JWT guard
-│   └── error.middleware.js    # Centralized error handler
+│   └── validate.middleware.js  
 ├── utils/
-│   └── logger.js
+│   └── appError.util.js
+│   ├── catchAsync.util.js
+│   ├── jwt.util.js
+|
+├── validators
+│    └── auth.validators.js
+│   
 ├── .env
 ├── app.js
 └── server.js
